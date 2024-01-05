@@ -9,9 +9,9 @@ function add(){
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listItems.appendChild(li);
-        let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
+        let x = document.createElement("x");
+        x.innerHTML = "\u00d7";
+        li.appendChild(x);
     }
 
     inputBox.value = '';
@@ -23,18 +23,18 @@ listItems.addEventListener("click", function(e){
         e.target.classList.toggle("checked");
         saveData();
     }
-    else if(e.target.tagName === "SPAN"){
+    else if(e.target.tagName === "X"){
         e.target.parentElement.remove();
         saveData();
     }
 }, false);
 
 function saveData(){
-    localStorage.setItem("data", listItems.innerHTML);
+    localStorage.setItem("tasks", listItems.innerHTML);
 }
 
 function showItems(){
-    listItems.innerHTML = localStorage.getItem("data");
+    listItems.innerHTML = localStorage.getItem("tasks");
 }
 
 showItems();
